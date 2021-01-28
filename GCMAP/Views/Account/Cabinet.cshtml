@@ -1,0 +1,33 @@
+﻿@{
+    ViewData["Title"] = "Личный кабинет";
+}
+
+<div class="container">
+
+    <h2 class="special-header col-12" style="padding-bottom:12px">
+        Личный кабинет
+    </h2>
+
+    <form asp-controller="Account" asp-action="Logout" method="post">
+        <div class="row justify-content-center cabinet-links-row">
+            <a type="button" asp-controller="Admin" asp-action="Users" class="col-lg-3 col-md-4 col-12 cabinet-button cabinet-link-wrapper">
+                <div class="cabinet-link">
+                    <i class="fas fa-user-shield fa-5x"></i>
+                    <div class="cabinet-link-item">Администрирование</div>
+                </div>
+            </a>
+            <a type="button" asp-controller="Moderator" asp-action="Start" class="col-lg-3 col-md-4 col-12 cabinet-button cabinet-link-wrapper">
+                <div class="cabinet-link">
+                    <i class="fas fa-users-cog fa-5x"></i>
+                    <div class="cabinet-link-item">Модерирование</div>
+                </div>
+            </a>
+            <button type="submit" class="col-lg-3 col-md-4 col-12 cabinet-button cabinet-link-wrapper cabinet-submit">
+                <div class="cabinet-link">
+                    <i class="fas fa-sign-out-alt fa-5x"></i>
+                    <div class="cabinet-link-item">Выйти</div>
+                </div>
+            </button>
+        </div>
+    </form>
+</div>

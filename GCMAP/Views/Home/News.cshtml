@@ -1,0 +1,54 @@
+﻿@model GCMAP.ViewModels.NewsViewModel
+
+@{
+    ViewData["Title"] = "Новости";
+}
+
+<div class="container">
+    <h2 class="special-header" style="padding-bottom:12px">Новости</h2>
+    <div class="card-deck">
+        @foreach (var news in Model.News)
+        {
+            <div class="col-lg-4 col-md-6 col-12">
+                <div class="card">
+                    <img class="card-img-top news-card-photo" src="@news.Photo.Path">
+                    <div class="card-body">
+                        <h5 class="card-title">@news.Theme</h5>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Автор: @news.Author</li>
+                        <li class="list-group-item">Дата: @news.Date.ToString("dd.MM.yyyy")</li>
+                    </ul>
+                    <div class="card-body">
+                        <button class="card-link btn btn-primary" data-toggle="modal" data-target="#Id_@news.Id">Детальнее</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal fade" id="Id_@news.Id" tabindex="-1" role="dialog" aria-labelledby="TitleId_@news.Id" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="TitleId_@news.Id">@news.Theme</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <img class="modal-photo border shadow" src="@news.Photo.Path" />
+                            <hr />
+                            <p>@news.Description</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+    <div class="main-pagination">
+        <pages page-model="Model.PageViewModel" page-action="News"></pages>
+    </div>
+</div>

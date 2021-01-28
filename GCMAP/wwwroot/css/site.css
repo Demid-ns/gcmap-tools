@@ -1,0 +1,142 @@
+﻿.header {
+    position: relative;
+    z-index: 200;
+}
+
+.field-validation-error {
+    color: red;
+}
+
+.validation-summary-errors {
+    color: red;
+}
+
+#mapid {
+    position: absolute;
+    z-index: 100;
+    right: 0;
+    left: 0;
+    top: 50px;
+    bottom: 0px;
+}
+
+.special-header {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-top: 1.5rem;
+}
+
+.login-label {
+    margin-top: 5px;
+}
+
+.register-button {
+    margin-top: 10px;
+}
+
+.users-link {
+    margin-bottom: 10px;
+}
+
+.users-roles {
+    margin-left: 10px;
+}
+
+div .validation ul {
+    padding-left: 20px !important;
+}
+
+.form-aligned {
+    text-align: center;
+}
+
+.cabinet-links-row {
+    height: 200px;
+}
+
+.cabinet-button {
+    height: 200px !important;
+    background: none;
+    color: inherit;
+    border: none;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+}
+
+.cabinet-link-wrapper {
+    padding: 10px;
+}
+
+.cabinet-link {
+    text-align: center;
+    border: 2px solid;
+    height: 100%;
+    padding: 25px;
+    padding-top: 35px;
+    border-radius: 5px;
+}
+
+.cabinet-link-item {
+    margin-top: 10px;
+    font-size: 1.2rem;
+}
+
+.cabinet-submit:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+.cabinet-submit:focus {
+    outline: none !important;
+    outline: none !important;
+}
+
+.file-input {
+    margin-top: 10px;
+}
+
+.card {
+    margin-top: 10px
+}
+
+.card-deck {
+    margin-bottom: 20px;
+}
+
+.news-card-photo {
+    height: 100%;
+}
+
+.card-title {
+    margin-bottom: 0px !important;
+}
+
+.main-pagination {
+    margin-left: 15px;
+}
+
+.modal-photo {
+    width: 100%;
+}
+
+.form-image {
+    height: 300px;
+}
+
+.ok-items {
+    text-align: center;
+}
+
+@media(max-width: 767px) {
+    .table-button {
+        margin-top: 5px;
+    }
+}
+
+@media(max-width: 991px) {
+    .table-delete {
+        margin-top: 5px;
+    }
+}

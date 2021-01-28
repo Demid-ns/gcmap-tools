@@ -1,0 +1,37 @@
+﻿@model GCMAP.ViewModels.ModerateConnectionsViewModel
+
+@{
+    ViewData["Title"] = "Подтвержденные подключения";
+}
+
+<div class="container">
+
+    <h2 class="special-header" style="padding-bottom:12px">Одобренные подключения</h2>
+
+    <div class="users-link">
+        <a asp-controller="Moderator" asp-action="Connections">Подключения</a>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table">
+            <tr><th>Автор заявки</th><th>Название станции</th><th>Дата</th><th>Действие</th></tr>
+            @foreach (var connection in Model.Connections)
+            {
+                <tr>
+                    <td>@connection.NickName</td>
+                    <td>@connection.StationName</td>
+                    <td>@connection.Date.ToString("dd.MM.yyyy")</td>
+                    <td>
+                        <form asp-controller="Moderator" asp-action="DeleteConnection" asp-route-id="@connection.Id" method="post">
+                            <button type="submit" class="btn btn-primary table-delete">
+                                Удалить
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+
+    <pages page-model="Model.PageViewModel" page-action="AcceptedConnections"></pages>
+</div>

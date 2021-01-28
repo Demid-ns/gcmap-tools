@@ -1,0 +1,48 @@
+﻿@model GCMAP.ViewModels.ModerateRequestsViewModel
+
+@{
+    ViewData["Title"] = "Подтвержденные заявки";
+}
+
+<div class="container">
+
+    <h2 class="special-header" style="padding-bottom:12px">Одобренные заявки</h2>
+
+    <div class="users-link">
+        <a asp-controller="Moderator" asp-action="Requests">Заявки</a>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table">
+            <tr><th>Автор заявки</th><th>Тип заявки</th><th>Дата</th><th>Действие</th></tr>
+            @foreach (var request in Model.Requests)
+            {
+                <tr>
+                    <td>@request.NickName</td>
+                    @if (request.RequestType.ToString() == "Join")
+                    {
+                        <td>Присоединение к метро</td>
+                    }
+                    @if (request.RequestType.ToString() == "JoinTeam")
+                    {
+                        <td>Присоединение к команде</td>
+                    }
+                    @if (request.RequestType.ToString() == "Failure")
+                    {
+                        <td>Жалоба</td>
+                    }
+                    <td>@request.Date.ToString("dd.MM.yyyy")</td>
+                    <td>
+                        <form asp-controller="Moderator" asp-action="DeleteRequest" asp-route-id="@request.Id" method="post">
+                            <button type="submit" class="btn btn-primary table-delete">
+                                Удалить
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+
+    <pages page-model="Model.PageViewModel" page-action="AcceptedRequests"></pages>
+</div>

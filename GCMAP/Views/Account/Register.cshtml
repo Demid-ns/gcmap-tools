@@ -1,0 +1,51 @@
+﻿@model GCMAP.ViewModels.RegisterViewModel
+
+@{
+    ViewData["Title"] = "Регистрация";
+}
+
+<div class="container">
+    <h2 class="special-header" style="padding-bottom:12px">Зарегистрируйте аккаунт</h2>
+    <div class="justify-content-center align-content-center">
+        <form method="post" asp-controller="Account" asp-action="Register">
+            <div class="form-row justify-content-center">
+                <div class="col-lg-6 col-12 validation">
+                    <div asp-validation-summary="ModelOnly"></div>
+                </div>
+            </div>
+            <div class="form-row justify-content-center">
+                <div class="col-lg-6 col-12">
+                    <label asp-for="Email" class="login-label"></label><br />
+                    <input asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email"></span>
+                </div>
+            </div>
+            <div class="form-row justify-content-center">
+                <div class="col-lg-6 col-12">
+                    <label asp-for="NickName" class="login-label"></label><br />
+                    <input asp-for="NickName" class="form-control" />
+                    <span asp-validation-for="NickName"></span>
+                </div>
+            </div>
+            <div class="form-row justify-content-center">
+                <div class="col-lg-6 col-12">
+                    <label asp-for="Password" class="login-label"></label><br />
+                    <input asp-for="Password" class="form-control" />
+                    <span asp-validation-for="Password"></span>
+                </div>
+            </div>
+            <div class="form-row justify-content-center">
+                <div class="col-lg-6 col-12">
+                    <label asp-for="PasswordConfirm" class="login-label"></label><br />
+                    <input asp-for="PasswordConfirm" class="form-control" />
+                    <span asp-validation-for="PasswordConfirm"></span>
+                </div>
+            </div>
+            <div class="form-row justify-content-center">
+                <div class="col-lg-6 col-12">
+                    <button type="submit" class="btn btn-primary register-button">Зарегистироваться</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

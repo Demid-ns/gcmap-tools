@@ -1,0 +1,34 @@
+﻿@using Microsoft.AspNetCore.Identity
+@model GCMAP.ViewModels.ChangeRoleViewModel
+
+@{
+    ViewData["Title"] = "Изменить роли";
+}
+
+<div class="container">
+    <h2 class="special-header" style="padding-bottom:12px">Изменение ролей для пользователя @Model.UserEmail</h2>
+    <div class="justify-content-center align-content-center">
+        <form asp-controller="Admin" asp-action="ChangeRole" method="post" class="form-aligned">
+            <input type="hidden" name="userId" value="@Model.UserId" />
+            <div class="form-group">
+                @foreach (IdentityRole role in Model.AllRoles)
+                {
+                    <div class="form-row form-check form-check-inline">
+                        <input type="checkbox" class="form-check-input" name="roles" value="@role.Name"
+                               id="@role.Id" @(Model.UserRoles.Contains(role.Name) ? "checked=\"checked\"" : "") />
+                        <label class="form-check-label" for="@role.Id">@role.Name</label>
+                        <br />
+                    </div>
+                }
+            </div>
+            <div class="form-row">
+                <div class="col-lg-6 col-12">
+                    <a class="btn btn-secondary register-button" asp-controller="Admin" asp-action="Users">
+                        Назад
+                    </a>
+                    <button type="submit" class="btn btn-primary register-button">Изменить</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

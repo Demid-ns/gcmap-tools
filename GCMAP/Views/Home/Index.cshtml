@@ -1,0 +1,43 @@
+﻿@model GCMAP.Models.Map
+
+@{
+    ViewData["Title"] = "Карта";
+}
+
+<div id="mapid" style="width:100%;">
+
+</div>
+
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+      integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+      crossorigin="" />
+<link rel="stylesheet" href="/node_modules/leaflet-coordinates-control/src/L.Control.Coordinates.css" />
+
+@section Scripts {
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+            integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+            crossorigin=""></script>
+    <script type="text/javascript" src="/node_modules/leaflet-coordinates-control/src/L.Control.Coordinates.js"></script>
+    <script type="text/javascript" src="/node_modules/leaflet-coordinates-control/src/L.Control.Coordinates.js"></script>
+    <script type="text/javascript">
+        let map = L.map('mapid', {
+            crs: L.CRS.Simple,
+            minZoom: -3,
+            maxZoom: 3
+        });
+        let bounds = [[11520, -3456], [5231, -7632]];
+        
+        let image = L.imageOverlay('@Model.Photo.Path', bounds).addTo(map);
+        map.fitBounds(bounds);
+
+        var c = new L.Control.Coordinates();
+        c.addTo(map);
+
+        function onMouse(e) {
+            c.setCoordinates(e);
+        }
+
+        map.on('mousemove', onMouse);
+    </script>
+}

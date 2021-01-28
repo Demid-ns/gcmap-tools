@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - GCMAP TOOLS</title>
+    <link rel="stylesheet" href="/node_modules/@@fortawesome/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" asp-controller="Home" asp-action="Index">GCMAP TOOLS</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-item nav-link" asp-controller="Home" asp-action="Index">Карта <span class="sr-only">(current)</span></a>
+                    <a class="nav-item nav-link" asp-controller="Home" asp-action="News">Новости</a>
+                    <a class="nav-item nav-link" asp-controller="Home" asp-action="Requests">Составить заявку</a>
+                    @if (User.IsInRole("admin") || User.IsInRole("moderator") || User.IsInRole("root"))
+                    {
+                        <a class="nav-item nav-link" asp-controller="Moderator" asp-action="Start">Панель модератора</a>
+                    }
+                    @if (User.IsInRole("admin") || User.IsInRole("root"))
+                    {
+                        <a class="nav-item nav-link" asp-controller="Admin" asp-action="Users">Управление пользователями</a>
+                    }
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <a class="nav-item nav-link" asp-controller="Account" asp-action="Cabinet">Личный кабинет</a>
+                    }
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main role="main">
+        @RenderBody()
+    </main>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

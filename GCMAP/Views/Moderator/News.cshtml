@@ -1,0 +1,38 @@
+﻿@model GCMAP.ViewModels.ModerateNewsViewModel
+
+@{
+    ViewData["Title"] = "Модерация новостей";
+}
+
+<div class="container">
+
+    <h2 class="special-header" style="padding-bottom:12px">Новости</h2>
+
+    <div class="users-link">
+        <a asp-controller="Moderator" asp-action="CreateNews">Создать новость</a>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table">
+            <tr><th>Тема новости</th><th>Автор</th><th>Дата</th><th>Действие</th></tr>
+            @foreach (var news in Model.News)
+            {
+                <tr>
+                    <td>@news.Theme</td>
+                    <td>@news.Author</td>
+                    <td>@news.Date.ToString("dd.MM.yyyy")</td>
+                    <td>
+                        <form asp-controller="Moderator" asp-action="DeleteNews" asp-route-id="@news.Id" method="post">
+                            <a class="btn btn-secondary" asp-controller="Moderator" asp-action="EditNews" asp-route-id="@news.Id">Изменить новость</a>
+                            <button type="submit" class="btn btn-primary table-delete">
+                                Удалить
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+
+    <pages page-model="Model.PageViewModel" page-action="News"></pages>
+</div>

@@ -1,0 +1,38 @@
+﻿@model IEnumerable<GCMAP.Areas.Identity.Data.GCMAPUser>
+
+@{
+    ViewData["Title"] = "Пользователи";
+}
+
+<div class="container">
+
+    <h2 class="special-header" style="padding-bottom:12px">Управление пользователями</h2>
+
+    <div class="users-link">
+        <a asp-controller="Admin" asp-action="Register">Зарегистрировать пользователя</a>
+        <a class="users-roles" asp-controller="Admin" asp-action="Roles">Роли</a>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table">
+            <tr><th>Никнейм</th><th>Email</th><th>Действие</th></tr>
+            @foreach (var user in Model)
+            {
+                <tr>
+                    <td>@user.NickName</td>
+                    <td>@user.Email</td>
+                    <td>
+                        <form asp-controller="Admin" asp-action="Delete" asp-route-id="@user.Id" method="post">
+                            <a class="btn btn-secondary" asp-controller="Admin" asp-action="EditUser" asp-route-id="@user.Id">Изменить данные</a>
+                            <a class="btn btn-secondary table-button" asp-controller="Admin" asp-action="ChangePassword" asp-route-id="@user.Id">Изменить пароль</a>
+                            <a class="btn btn-secondary table-button" asp-controller="Admin" asp-action="ChangeRole" asp-route-id="@user.Id">Права доступа</a>
+                            <button type="submit" class="btn btn-primary table-delete">
+                                Удалить
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>

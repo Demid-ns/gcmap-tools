@@ -1,0 +1,31 @@
+﻿@{
+    ViewData["Title"] = "Типы заявок";
+}
+
+<div class="container">
+    <h2 class="special-header col-12" style="padding-bottom:12px">
+        Выберите тип заявки
+    </h2>
+
+    <div class="row justify-content-center cabinet-links-row">
+        <a type="button" asp-controller="Home" asp-action="Failure" class="col-lg-4 col-12 cabinet-button cabinet-link-wrapper">
+            <div class="cabinet-link">
+                <i class="fas fa-hammer fa-5x"></i>
+                <div class="cabinet-link-item">Сообщить о проблеме</div>
+            </div>
+        </a>
+        <a type="button" asp-controller="Home" asp-action="Join" class="col-lg-4 col-12 cabinet-button cabinet-link-wrapper">
+            <div class="cabinet-link">
+                <i class="fas fa-link fa-5x"></i>
+                <div class="cabinet-link-item">Присоединиться к метро</div>
+            </div>
+        </a>
+        <a type="button" asp-controller="Home" asp-action="JoinTeam" class="col-lg-4 col-12 cabinet-button cabinet-link-wrapper">
+            <div class="cabinet-link">
+                <i class="fas fa-file-signature fa-5x"></i>
+                <div class="cabinet-link-item">Присоединиться к команде</div>
+            </div>
+        </a>
+    </div>
+
+</div>

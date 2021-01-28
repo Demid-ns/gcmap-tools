@@ -1,0 +1,42 @@
+﻿@{
+    ViewData["Title"] = "Панель модератора";
+}
+
+<div class="container">
+    <h2 class="special-header col-12" style="padding-bottom:12px">
+        Панель модератора
+    </h2>
+
+    <div class="row justify-content-center cabinet-links-row">
+        <a type="button" asp-controller="Moderator" asp-action="News" class="col-lg-3 col-md-6 col-12 cabinet-button cabinet-link-wrapper">
+            <div class="cabinet-link">
+                <i class="far fa-newspaper fa-5x"></i>
+                <div class="cabinet-link-item">Новости</div>
+            </div>
+        </a>
+        <a type="button" asp-controller="Moderator" asp-action="Connections" class="col-lg-3 col-md-6 col-12 cabinet-button cabinet-link-wrapper">
+            <div class="cabinet-link">
+                <i class="fas fa-link fa-5x"></i>
+                <div class="cabinet-link-item">Подключения</div>
+            </div>
+        </a>
+        <a type="button" asp-controller="Moderator" asp-action="Requests" class="col-lg-3 col-md-6 col-12 cabinet-button cabinet-link-wrapper">
+            <div class="cabinet-link">
+                <i class="far fa-sticky-note fa-5x"></i>
+                <div class="cabinet-link-item">Заявки</div>
+            </div>
+        </a>
+        <a type="button" asp-controller="Moderator" asp-action="UploadMap" class="col-lg-3 col-md-6 col-12 cabinet-button cabinet-link-wrapper">
+            <div class="cabinet-link">
+                <i class="fas fa-map fa-5x"></i>
+                <div class="cabinet-link-item">Обновить карту</div>
+            </div>
+        </a>
+        <a type="button" asp-controller="Account" asp-action="Cabinet" class="col-lg-3 col-md-6 col-12 cabinet-button cabinet-link-wrapper">
+            <div class="cabinet-link">
+                <i class="fas fa-backspace fa-5x"></i>
+                <div class="cabinet-link-item">Назад</div>
+            </div>
+        </a>
+    </div>
+</div>

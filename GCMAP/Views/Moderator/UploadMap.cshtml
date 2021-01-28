@@ -1,0 +1,31 @@
+﻿@model GCMAP.ViewModels.UploadMapViewModel
+
+@{
+    ViewData["Title"] = "Обновление карты";
+}
+
+<div class="container">
+    <h2 class="special-header" style="padding-bottom:12px">Обновите карту</h2>
+    <div class="justify-content-center align-content-center">
+        <form method="post" asp-controller="Moderator" asp-action="UploadMap" enctype="multipart/form-data">
+            <div class="form-row justify-content-center file-input">
+                <div class="col-lg-6 col-12">
+                    <div class="custom-file">
+                        <input type="file" asp-for="Photo" class="custom-file-input" id="customFile" />
+                        <label class="custom-file-label" for="customFile">Выберите файл</label>
+                    </div>
+                    <span asp-validation-for="Photo"></span>
+                </div>
+            </div>
+            <div class="form-row justify-content-center">
+                <div class="col-lg-6 col-12">
+                    <a class="btn btn-secondary register-button" asp-controller="Moderator" asp-action="Start">
+                        Назад
+                    </a>
+                    <button type="submit" class="btn btn-primary register-button">Загрузить карту</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+

@@ -1,0 +1,44 @@
+﻿@model GCMAP.ViewModels.LoginViewModel
+
+@{
+    ViewData["Title"] = "Войти в систему";
+}
+
+<div class="container">
+    <h2 class="special-header" style="padding-bottom:12px">Войдите в профиль</h2>
+    <div class="justify-content-center align-content-center">
+        <form method="post" asp-controller="Account" asp-action="Login" asp-route-returnUrl="@Model.ReturnUrl">
+            <div class="form-row justify-content-center">
+                <div class="col-lg-6 col-12 validation">
+                    <div asp-validation-summary="ModelOnly"></div>
+                </div>
+            </div>
+            <div class="form-row justify-content-center">
+                <div class="col-lg-6 col-12">
+                    <label asp-for="Email" class="login-label"></label><br />
+                    <input asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email"></span>
+                </div>
+            </div>
+            <div class="form-row justify-content-center">
+                <div class="col-lg-6 col-12">
+                    <label asp-for="Password" class="login-label"></label><br />
+                    <input asp-for="Password" class="form-control" />
+                    <span asp-validation-for="Password"></span>
+                </div>
+            </div>
+            <div class="form-row justify-content-center auth-form-row">
+                <div class="col-lg-6 col-12">
+                    <label asp-for="RememberMe" class="login-label"></label>
+                    <input asp-for="RememberMe" />
+                </div>
+            </div>
+            <div class="form-row justify-content-center">
+                <div class="col-lg-6 col-12">
+                    <a type="button" class="btn btn-secondary" asp-controller="Account" asp-action="Register">Зарегистрироваться</a>
+                    <button type="submit" class="btn btn-primary">Войти</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
